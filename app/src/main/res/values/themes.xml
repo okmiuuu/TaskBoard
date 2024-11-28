@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TaskBoard" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+<!--        <item name="android:background">@color/background_light</item>-->
+        <item name="colorOnBackground">@color/background_light</item>
+        <item name="colorPrimary">@color/main_text_light</item>
+<!--        <item name="colorAccent">@color/accent</item>-->
+        <item name="colorSecondary">@color/secondary_light</item>
+        <item name="android:fontFamily">@font/mulish</item>
+    </style>
+
+    <style name="Theme.TaskBoard" parent="Base.Theme.TaskBoard" />
+
+</resources>

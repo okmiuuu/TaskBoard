@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background_light">#D6D3CD</color>
+    <color name="background_night">#001514</color>
+    <color name="main_text_light">#001514</color>
+    <color name="main_text_night">#D6D3CD</color>
+    <color name="secondary_light">#B52733</color>
+    <color name="secondary_night">#6E2127</color>
+    <color name="accent">#6B0504</color>
+<!--    <color name="fire_urgent">#EB5A47</color>-->
+<!--    <color name="fire_can_wait">#FFA2A2</color>-->
+<!--    <color name="fire_long_period">#9CE7FC</color>-->
+<!--    <color name="difficulty_easy">#ADD671</color>-->
+<!--    <color name="difficulty_medium">#FDFF99</color>-->
+<!--    <color name="difficulty_hard">#DE3F44</color>-->
+<!--    <color name="status_not_started">#CDC8B6</color>-->
+<!--    <color name="status_in_progress">#EBD35C</color>-->
+<!--    <color name="status_ready">#00A35A</color>-->
+</resources>

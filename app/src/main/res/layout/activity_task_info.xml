@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskInfoActivity"
+    android:background="?attr/colorOnBackground">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/taskPhoto"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/placeholder"
+             />
+
+        <TextView
+            android:id="@+id/taskName"
+            android:text="TASK NAME"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/taskDescription"
+            android:text="TASK DESCRIPTION"
+            android:textSize="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/taskUrgency"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/urgency_urgent_active" />
+
+            <ImageView
+                android:id="@+id/taskDifficulty"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/difficulty_easy_active" />
+
+            <ImageView
+                android:id="@+id/taskStatus"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="90dp"
+                android:src="@drawable/status_not_started" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

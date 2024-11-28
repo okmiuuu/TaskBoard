@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TaskBoard</string>
+    <string name="add_task">Дадаць заданне</string>
+    <string name="task_name">Назва задання</string>
+    <string name="enter_description">Увядзіце апісанне</string>
+    <string name="choose_difficulty_level">Выбярыце ўзровень складанасці</string>
+    <string name="choose_urgency_level">Выбярыце ўзровень тэрміновасці</string>
+    <string name="no_name">Неапазнанае заданне</string>
+    <string name="save_task">Захаваць заданне</string>
+    <string name="accept_changes">Пацвердзіць змены?</string>
+    <string name="choose_photo">Выбярыце выяву</string>
+    <string name="edit_task">Рэдагаваць</string>
+    <string name="delete_task">Выдаліць</string>
+    <string name="delete_confirm">Вы ўпэўнены, што хаціце выдаліць гэта заданне?</string>
+    <string name="yes">Так</string>
+    <string name="no">Не</string>
+    <string name="sort">Сартыроўка</string>
+    <string name="search_for_name">Пошук па назве</string>
+    <string name="ready_tasks"> скончана</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

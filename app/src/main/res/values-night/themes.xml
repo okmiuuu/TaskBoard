@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TaskBoard" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+<!--        <item name="android:background">@color/background_night</item>-->
+        <item name="colorOnBackground">@color/background_night</item>
+
+        <item name="colorPrimary">@color/main_text_night</item>
+<!--        <item name="colorAccent">@color/accent</item>-->
+        <item name="colorSecondary">@color/secondary_night</item>
+        <item name="android:fontFamily">@font/mulish</item>
+    </style>
+</resources>

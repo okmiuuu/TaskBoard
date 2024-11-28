@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditTaskActivity"
+    android:background="?attr/colorOnBackground">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+
+        <ImageView
+            android:id="@+id/addTaskImageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/placeholder"
+            android:layout_margin="20dp"/>
+
+        <TextView
+            android:id="@+id/enterNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/task_name"
+            android:labelFor="@+id/NameEditText"/>
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            />
+
+        <TextView
+            android:id="@+id/enterDescriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_description"
+            android:labelFor="@+id/descriptionEditText"/>
+
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/chooseDifficultyLevelTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_difficulty_level" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/difficultyEasyButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/difficulty_easy"
+                android:scaleType="fitCenter"/>
+
+            <ImageButton
+                android:id="@+id/difficultyMediumButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/difficulty_medium"
+                android:scaleType="fitCenter"/>
+
+            <ImageButton
+                android:id="@+id/difficultyHardButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/difficulty_hard"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/chooseUrgencyLevelTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_urgency_level" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/urgencyUrgentButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/urgency_urgent"
+                android:scaleType="fitCenter"/>
+
+            <ImageButton
+                android:id="@+id/urgencyCanWaitButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/urgency_can_wait"
+                android:scaleType="fitCenter"/>
+
+            <ImageButton
+                android:id="@+id/urgencyLongPeriodButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/urgency_long_period"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="70dp"
+            android:textSize="22sp"
+            android:id="@+id/saveTaskButton"
+            android:text="@string/save_task"
+            android:textColor="?attr/colorOnBackground"
+            android:backgroundTint="?attr/colorSecondary" />
+
+
+    </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
