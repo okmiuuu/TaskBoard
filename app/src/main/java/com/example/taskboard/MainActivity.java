@@ -45,12 +45,22 @@ public class MainActivity extends AppCompatActivity {
             taskInfoFragment.updateTaskInfo(task);
             taskInfoFragment.setClickListeners();
         }
+    }
+
+    public void addTran(Task task) {
+        if (task == null) {
+            Log.e("TaskInfoFragment", "Task object is null");
+            return;
+        }
+
+        TaskInfoFragment taskFragment = TaskInfoFragment.newInstance(task);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        transaction.replace(R.id.fragmentTaskInfo, taskInfoFragment);
-        transaction.addToBackStack(null);
+        transaction.replace(R.id.fragmentTaskInfo, taskFragment);
+        transaction.addToBackStack(null); // Optional: Only if you want to allow back navigation
         transaction.commit();
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,18 +78,6 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //
         setSupportActionBar(binding.toolbar);
-
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                    getSupportFragmentManager().popBackStack(); // Pop the top of the back stack
-                } else {
-                    this.setEnabled(false);
-                    MainActivity.super.onBackPressed();
-                }
-            }
-        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -107,35 +105,35 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
-        MenuItem searchItem = menu.findItem(R.id.search_tasks);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        if (searchView != null) {
-            searchView.setQueryHint(getString(R.string.search_for_name));
-
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    filterItems(query);
-                    return true;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    Log.d("SearchView", "onQueryTextChange: " + newText);
-                    filterItems(newText) ;
-                    return true;
-                }
-            });
-
-
-            searchView.setOnQueryTextFocusChangeListener((v, hasFocus) -> {
-                if (!hasFocus) {
-                    filterItems("");
-                }
-            });
-        } else {
-            Log.e("MenuError", "SearchView is null");
-        }
+//        MenuItem searchItem = menu.findItem(R.id.search_tasks);
+//        SearchView searchView = (SearchView) searchItem.getActionView();
+//        if (searchView != null) {
+//            searchView.setQueryHint(getString(R.string.search_for_name));
+//
+//            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//                @Override
+//                public boolean onQueryTextSubmit(String query) {
+//                    filterItems(query);
+//                    return true;
+//                }
+//
+//                @Override
+//                public boolean onQueryTextChange(String newText) {
+//                    Log.d("SearchView", "onQueryTextChange: " + newText);
+//                    filterItems(newText) ;
+//                    return true;
+//                }
+//            });
+//
+//
+//            searchView.setOnQueryTextFocusChangeListener((v, hasFocus) -> {
+//                if (!hasFocus) {
+//                    filterItems("");
+//                }
+//            });
+//        } else {
+//            Log.e("MenuError", "SearchView is null");
+//        }
 
         return true;
     }
@@ -149,13 +147,21 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
-        if(item.getItemId() == R.id.sort_tasks ){
-            sortList();
-            return true;
+        if(item.getItemId() == R.id.return_back ){
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                getSupportFragmentManager().popBackStack();
+            } else {
+                super.onBackPressed();
+            }
         }
+//        if(item.getItemId() == R.id.sort_tasks ){
+//            sortList();
+//            return true;
+//        }
         else {
             return super.onOptionsItemSelected(item);
         }
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -183,15 +189,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void CloseInfoTaskFragment() {
         binding.fragmentTaskInfo.setVisibility(View.INVISIBLE);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack(); // Pop the top of the back stack
-        } else {
-            super.onBackPressed(); // Default behavior
-        }
     }
 
 //    public void onTaskUpdated() {

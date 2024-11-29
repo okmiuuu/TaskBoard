@@ -36,6 +36,37 @@ public class TaskInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentTaskInfoBinding.inflate(inflater, container, false);
+
+        if (getArguments() != null) {
+            Task workTask = getArguments().getParcelable("selectedTask");
+
+            if (workTask != null) {
+                binding.taskName.setText(workTask.Name);
+                binding.taskDescription.setText(workTask.Description);
+
+                SetTaskDifficulty();
+                SetTaskUrgency();
+                SetTaskStatus();
+
+                if (workTask.PhotoUri != null) {
+                    try {
+                        Uri imageUri = Uri.parse(workTask.PhotoUri);
+                        try (InputStream inputStream = requireActivity().getContentResolver().openInputStream(imageUri)) {
+                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                            binding.taskPhoto.setImageBitmap(bitmap);
+                        }
+                    } catch (IOException | SecurityException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                Task.saveAllTasksToJsonFile(requireContext());
+            }
+        }
+
+
+
+
         //loadTaskData();
         return binding.getRoot();
     }
@@ -63,6 +94,7 @@ public class TaskInfoFragment extends Fragment {
     }
 
     public void updateTaskInfo(Task task) {
+
         mainTask = task;
         if (mainTask != null) {
             binding.taskName.setText(mainTask.Name);

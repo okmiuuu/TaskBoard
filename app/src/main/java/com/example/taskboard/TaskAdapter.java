@@ -63,7 +63,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                 context.startActivity(intent);
             } else {
                 if (context instanceof MainActivity) {
-                    ((MainActivity) context).updateTaskInfoFragment(task);
+                    ((MainActivity) context).addTran(task);
+                    //((MainActivity) context).updateTaskInfoFragment(task);
                 }
             }
         });
